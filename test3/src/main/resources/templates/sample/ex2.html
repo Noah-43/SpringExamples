@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- th:each = "변수:${목록} (each 속성 사용법) -->
+    <!-- 반복문에는 부가적으로 상태(state) 객체라는 것이 있다. 상태 객체를 이용해서 순번, 인덱스 번호, 홀/짝 등을 지정 가능 -->
+    <!-- index는 0부터 시작 count는 1부터 시작 -->
+    <!-- th:if와 th:unless를 이용해 상황에 맞게 제어문 처리 가능. 삼항 연산자 스타일도 사용 가능 -->
+    <!-- 이러한 제어문을 통해 특정한 상황에만 적용하는 CSS의 클래스를 지정할 수 있다. -->
+    <!-- '[[${dto}]]'는 인라인 표현식을 이용한 것(주석 안의 인라인 표현식을 읽어서 에러가 발생했다.. 주의!), 별도의 태그 속성으로 지정하지 않고 사용하고자 할 때 유용하다. -->
+
+<!--    <ul>-->
+<!--        <li th:each="dto, state : ${list}">-->
+<!--            <span th:if="${dto.sno % 5 ==0}" th:text="${'-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;'+dto.sno}"></span>-->
+<!--            <span th:unless="${dto.sno % 5 == 0}" th:text="${dto.first}"></span>-->
+<!--        </li>-->
+<!--    </ul>-->
+
+<!--    <ul>-->
+<!--        <li th:each="dto, state : ${list}" th:text="${dto.sno % 5 == 0 } ? ${dto.sno} : ${dto.first}"></li>-->
+<!--    </ul>-->
+
+<!--    <style>-->
+<!--        .target {-->
+<!--            background-color: red;-->
+<!--        }-->
+<!--    </style>-->
+<!--    <ul>-->
+<!--        <li th:each="dto, state : ${list}" th:class="${dto.sno % 5 == 0} ? 'target'" th:text="${dto}"-->
+<!--    </ul>-->
+
+    <ul>
+        <!-- th:block은 별도의 태그가 필요하지 않다. 실제 화면에서 html로 처리되지 않기  때문에 루프 등을 별도로 처리하는 용도로 많이 사용된다.-->
+        <th:block th:each="dto:${list}">
+            <li th:text="${dto.sno % 5 == 0} ? ${dto.sno} : ${dto.first}"></li>
+        </th:block>
+    </ul>
+
+</body>
+</html>

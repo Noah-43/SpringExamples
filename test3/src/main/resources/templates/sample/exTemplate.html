@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- 전체적인 레이아웃은 layout1.html의 내용 사용. CONTENT 부분은 exTemplate.html의 내용으로 변경 -->
+<th:block th:replace="~{/layout/layout1 :: setContent(~{::content})}"> <!-- this는 생략이 가능 -->
+
+    <th:block th:fragment="content">
+        <h1>exTemplate Page </h1>
+    </th:block>
+
+</th:block>

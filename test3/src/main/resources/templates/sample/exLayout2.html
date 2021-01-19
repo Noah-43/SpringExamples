@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- this는 현재 페이지를 의미(생략 가능). #ulFirst는 CSS의 id 선택자 -->
+<!-- 실행결과 fragment3.html의 코드에 exLayout2.html에서 전달된 태그들이 포함되어서 출력된다. -->
+<th:block th:replace="~{/fragments/fragment3 :: target(~{this :: #ulFirst}, ~{this :: #ulSecond})}">
+    <ul id="ulFirst">
+        <li>AAA</li>
+        <li>BBB</li>
+        <li>CCC</li>
+    </ul>
+
+    <ul id="ulSecond">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+</th:block>

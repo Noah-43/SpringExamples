@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${result}"></h1>
+    <h1 th:text="${dto}"></h1>
+
+    <!-- 이 script 태그의 내부는 javascript를 사용하는 것이다. -->
+    <!-- th:inline="javascript"로 속성을 설정하지 않으면 dto가 JSON 포맷의 문자열 형태로 되지 않는다. -->
+    <script th:inline="javascript">
+        var msg = [[${result}]];
+        var dto = [[${dto}]];
+    </script>
+</body>
+</html>

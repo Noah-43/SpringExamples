@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- div 혹은 th:block을 이용해서 조각들을 사용 -->
+    <!-- 'th:replace'를 이용할 때 '::' 뒤에는 fragment의 이름을 지정하거나 CSS의 '#id'와 같은 선택자를 이용할 수 있다. '::' 이하를 생략하면 해당 파일 전체 내용을 가져올 수 있다. -->
+    <!-- 'th:replace'는 해당 div를 대체하고 'th:insert'는 해당 div 내부에 추가됨 -->
+
+    <h1>Fragment Test</h1>
+    <div style="border: 1px solid blue">
+        <th:block th:replace="~{/fragments/fragment2}"></th:block>
+    </div>
+    <h1>Layout 1 - 1</h1>
+    <div th:replace="~{/fragments/fragment1 :: part1}"></div>
+
+    <h1>Layout 1 - 2</h1>
+    <div th:insert="~{/fragments/fragment1 :: part2}"></div>
+
+    <h1>Layout 1 - 3</h1>
+    <th:block th:replace="~{/fragments/fragment1 :: part3}"></th:block>
+
+
+</body>
+</html>
